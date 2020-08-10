@@ -15,7 +15,7 @@ get_header();
 <section class="page-section portfolio" id="portfolio">
   <div class="container">
     <!-- Portfolio Section Heading-->
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">HABILIDADES</h2>
     <!-- Icon Divider-->
     <div class="divider-custom">
       <div class="divider-custom-line"></div>
@@ -23,21 +23,24 @@ get_header();
       <div class="divider-custom-line"></div>
     </div>
     <!-- Portfolio Grid Items-->
-    <?php
-    if (have_posts()) {
-      while (have_posts()) {
-        the_post();
-    ?>
     <div class="row">
+      <?php
+      if (have_posts()) {
+        while (have_posts()) {
+          the_post();
+      ?>
+
       <!-- Portfolio Item 1-->
       <div class="col-md-6 col-lg-4 mb-5">
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
           <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+            <div class="portfolio-item-caption-content text-center text-white"> <?php echo the_title(); ?></div>
           </div>
-          <?php echo the_title(); ?>
-          <img class="img-fluid" src="<?php echo get_stylesheet_directory_uri() ?>/assets/img/portfolio/cabin.png"
-            alt="" />
+
+          <div class="row">
+            <?php the_post_thumbnail('thumbnail', array('style' => 'width: 100%; height: auto')); ?>
+          </div>
+          <!-- <img class="img-fluid" src="<?php echo get_stylesheet_directory_uri() ?>/assets/img/portfolio/cabin.png" alt="" /> -->
         </div>
       </div>
       <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
@@ -79,19 +82,10 @@ get_header();
         </div>
       </div>
       <!-- Portfolio Item 1 Fim-->
-
-
-
-
       <?php
-      } // end while
-    } // end if
+        } // end while
+      } // end if
       ?>
-
-
-
-
-
     </div>
   </div>
 </section>

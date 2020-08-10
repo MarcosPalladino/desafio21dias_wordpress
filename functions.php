@@ -8,4 +8,4 @@
  * @subpackage desafio21diasWordpress
  * @since Desafio 21 dias 1.0
  */
-?>
+add_theme_support( 'post-thumbnails' );
