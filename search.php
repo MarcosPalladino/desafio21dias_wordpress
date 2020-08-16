@@ -13,17 +13,15 @@
 get_header();
 $url = get_stylesheet_directory_uri();
 
-$args = array(
-  'posts_per_page' => 2,
-  'paged' => get_query_var("paged"),
-  'post_type' => 'post'
-);
-$the_query_post = new WP_Query($args);
-if ($the_query_post->have_posts()) {  ?>
-<div class="container" style="margin-top: 150px;">
-  <h2>Habilidades </h2>
+?>
+<h2>Resultados da busca por: <?php the_search_query(); ?></h2>
+
+<?php
+if (have_posts()) {  ?>
+<div class="container" style="text-align: center; margin-top: 150px;">
+  <h2>Resultados da busca por: <?php the_search_query(); ?></h2>
   <br>
-  <table class="table" id="tabHabilidades">
+  <table class="table" id="tabPesquisa">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -34,8 +32,8 @@ if ($the_query_post->have_posts()) {  ?>
     </thead>
     <tbody>
       <?php
-        while ($the_query_post->have_posts()) {
-          $the_query_post->the_post();
+        while (have_posts()) {
+          the_post();
         ?>
       <tr>
         <th scope="row"><?php the_id(); ?></th>
@@ -63,21 +61,11 @@ if ($the_query_post->have_posts()) {  ?>
 
     </tbody>
   </table>
-  <div class="pagination">
-    <?php
-      $wp_query = $the_query_post;
-      global $wp_query;
-      echo paginate_links(array(
-        'prev_text' => __('Anterior - Do Marcos')
-      ));
-      ?>
-  </div>
-
 </div>
 <?php
 } //
 else { ?>
-<div class="text-center mt-4 alert alert-danger" role="alert">
+<div class="container" style="text-align: center; margin-top: 150px;">
   <p>Nenhum post encontrado!</p>
 </div>
 <?php
@@ -90,17 +78,6 @@ else { ?>
 </div>
 </div>
 </div>
-
 </section>
 
 <?php get_footer(); ?>
-<script>
-$(document).ready(function() {
-  $("#txtbusca").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#tabHabilidades tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
