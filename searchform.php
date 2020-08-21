@@ -1,8 +1,9 @@
-<form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
-  <div>
-    <label for="s">O que voce produra:</label>
-    <br>
-    <input type="text" name="s" id="s" value="<?php the_search_query(); ?>" />
-    <input type="submit" id="searchsubmit" value="Pesquisar" />
-  </div>
-</form>
+<div class="conteudo-pesquisa">
+  <form role="search" method="get" class="formulario-pesquisa" action="<?php
+                                                                            echo home_url('/'); ?>">
+    <input type="search" class="input-pesquisa" placeholder="Buscar..." value="<?php echo get_search_query() ?>"
+      name="s" required />
+    <button type="submit"><i class="fa fa-search"></i></button>
+
+  </form>
+</div>

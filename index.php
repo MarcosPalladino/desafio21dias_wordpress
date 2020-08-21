@@ -27,7 +27,7 @@ $url = get_stylesheet_directory_uri();
       <div class="divider-custom-line"></div>
     </div>
     <!-- Masthead Subheading-->
-    <p class="masthead-subheading font-weight-light mb-0">Desenvolvedor Full-Stack</p>
+    <p class="masthead-subheading font-weight-light mb-0">Desenvolvedor Web</p>
   </div>
 </header>
 <!-- Portfolio Section-->
@@ -68,12 +68,11 @@ $url = get_stylesheet_directory_uri();
               <!-- <?php //the_title();
                         ?> -->
               <?php
-                  echo $post->post_title . "<br>";
-                  //echo "Titulo: " . $post->post_title . "<br>";
-                  //echo "Nome: " . $post->post_name . "<br>";
-                  //echo "Tipo: " . $post->post_type . "<br>";
-                  //echo "Alterado: " . $post->post_modified . "<br>";
-                  //echo "Status: " . $post->post_status . "<br>";
+                  echo "Titulo: " . $post->post_title . "<br>";
+                  echo "Nome: " . $post->post_name . "<br>";
+                  echo "Tipo: " . $post->post_type . "<br>";
+                  echo "Alterado: " . $post->post_modified . "<br>";
+                  echo "Status: " . $post->post_status . "<br>";
                   ?>
             </div>
           </div>
@@ -109,7 +108,9 @@ $url = get_stylesheet_directory_uri();
                       <div class="divider-custom-line"></div>
                     </div>
                     <!-- Portfolio Modal - Image-->
-                    <?php the_post_thumbnail('thumbnail', array('class' => 'img-fluid rounded mb-5')); ?>
+                    <a href="<?php echo get_permalink(); ?>">
+                      <?php the_post_thumbnail('thumbnail', array('class' => 'img-fluid rounded mb-5')); ?>
+                    </a>
                     <!-- Portfolio Modal - Text-->
                     <p class="mb-5">
                       <?php //the_content(); 
@@ -120,6 +121,7 @@ $url = get_stylesheet_directory_uri();
                       <i class="fas fa-times fa-fw"></i>
                       Fechar Janela
                     </button>
+
                   </div>
                 </div>
               </div>
@@ -132,11 +134,9 @@ $url = get_stylesheet_directory_uri();
           $i++;
         } // end while
         ?>
-
-      <div class="text-center mt-4">
-        <a class="btn btn-xl btn-primary" href="mais-itens"><i class="fa fa-arrow-left mr-2"></i>Ver Mais</a>
-      </div>
-
+      <a href="<?php echo home_url(); ?>/mais-itens" class="btn btn-primary"
+        style="width:100%; text-align:center; display:inline;">Ver
+        Mais</a>
       <?php
       } //
       else { ?>
@@ -164,21 +164,17 @@ $url = get_stylesheet_directory_uri();
     <!-- About Section Content-->
     <div class="row">
       <div class="col-lg-4 ml-auto">
-        <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the
-          complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy
-          customization. </p>
+        <p class="lead">tttttttttttttttttttttttttttttttttt.
+        </p>
       </div>
       <div class="col-lg-4 mr-auto">
-        <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add
-          your email address to the contact form to make it fully functional!</p>
+        <p class="lead">osofsaofoasdosdfo.</p>
       </div>
     </div>
     <!-- About Section Button-->
     <div class="text-center mt-4">
-      <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/themes/freelancer/">
-        <i class="fas fa-download mr-2"></i>
-        Download Curriculum!
-      </a>
+      <a class="btn btn-xl btn-outline-light" href="<?php echo home_url(); ?>/cv_habilidades"
+        target="_blank">Currículo</a>
     </div>
   </div>
 </section>
@@ -202,7 +198,7 @@ $url = get_stylesheet_directory_uri();
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Nome</label>
               <input class="form-control" id="name" type="text" placeholder="Nome" required="required"
-                data-validation-required-message="Por favor, digitar seu nome." />
+                data-validation-required-message="Insira seu nome." />
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -210,15 +206,15 @@ $url = get_stylesheet_directory_uri();
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Endereço de e-mail</label>
               <input class="form-control" id="email" type="email" placeholder="E-mail" required="required"
-                data-validation-required-message="Por favor, digitar seu endereço de e-mail." />
+                data-validation-required-message="Insira seu e-mail." />
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Número de telefone</label>
-              <input class="form-control" id="phone" type="tel" placeholder="Número de telefone" required="required"
-                data-validation-required-message="Por favor, digitar seu Número de telefone." />
+              <input class="form-control" id="phone" type="tel" placeholder="Telefone" required="required"
+                data-validation-required-message="Insira o telefone." />
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -226,7 +222,7 @@ $url = get_stylesheet_directory_uri();
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Mensagem</label>
               <textarea class="form-control" id="message" rows="5" placeholder="Mensagem" required="required"
-                data-validation-required-message="Por favor, digitar uma mensagem."></textarea>
+                data-validation-required-message="Insira uma mensagem."></textarea>
               <p class="help-block text-danger"></p>
             </div>
           </div>

@@ -82,7 +82,8 @@ $url = get_stylesheet_directory_uri();
         Menu
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+      <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
               href="<?php echo home_url(); ?>/#portfolio">Habilidades</a></li>
@@ -91,9 +92,22 @@ $url = get_stylesheet_directory_uri();
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
               href="<?php echo home_url(); ?>/#contact">Contato</a></li>
         </ul>
-      </div>
-      <div id="header-form">
-        <?php get_search_form(); ?>
+      </div> -->
+
+      <?php wp_nav_menu(array(
+        'theme_location'  => 'MenuPrincipal',
+        'container'       => 'div',
+        'container_id'    => 'navbarResponsive',
+        'container_class' => 'collapse navbar-collapse',
+        'menu_class'      => 'navbar-nav ml-auto',
+      ))
+      ?>
+    </div>
+    <div class="colunas lateral">
+      <div class="conteudo-coluna margem-total">
+        <div class="search-form">
+          <?php get_search_form(); ?>
+        </div>
       </div>
     </div>
   </nav>
